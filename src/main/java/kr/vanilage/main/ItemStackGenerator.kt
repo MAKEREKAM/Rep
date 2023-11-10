@@ -11,8 +11,7 @@ fun generateItemStack(type : Material, amount : Int) : ItemStack {
 fun generateItemStack(type : Material, amount: Int, name : String) : ItemStack {
     val itemStack = ItemStack(type, amount)
     val meta = itemStack.itemMeta
-    val component = Component.text(name)
-    component.decorations().clear()
+    val component = Component.text("§f$name")
     meta.displayName(component)
     itemStack.itemMeta = meta
     return itemStack

@@ -30,7 +30,11 @@ class Main : JavaPlugin() {
         for (i in shaped.getKeys(false)) {
             val resultType = Material.getMaterial(config.getString("shaped.$i.result.type")!!)!!
             val resultAmount = config.getInt("shaped.$i.result.amount")
-            val result = generateItemStack(resultType, resultAmount)
+            var result = generateItemStack(resultType, resultAmount)
+            val resultName = config.getString("shaped.$i.result.name")
+            if (resultName != null) {
+               result = generateItemStack(resultType, resultAmount, resultName)
+            }
             val shape = config.getList("shaped.$i.shape")!!
             val recipe = ShapedRecipe(NamespacedKey(this, i), result)
 
@@ -53,7 +57,11 @@ class Main : JavaPlugin() {
         for (i in shapeless.getKeys(false)) {
             val resultType = Material.getMaterial(config.getString("shapeless.$i.result.type")!!)!!
             val resultAmount = config.getInt("shapeless.$i.result.amount")
-            val result = generateItemStack(resultType, resultAmount)
+            var result = generateItemStack(resultType, resultAmount)
+            val resultName = config.getString("shapeless.$i.result.name")
+            if (resultName != null) {
+                result = generateItemStack(resultType, resultAmount, resultName)
+            }
             val recipe = ShapelessRecipe(NamespacedKey(this, i), result)
 
             for (j in config.getList("shapeless.$i.ingredient")!!) {

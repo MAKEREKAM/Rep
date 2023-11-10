@@ -1,0 +1,20 @@
+shapeless:
+  soul_sand:
+    ingredient:
+      - SAND
+      - COAL
+    result:
+      type: SOUL_SAND
+      amount: 1
+
+shaped:
+  saddle:
+    shape:
+      - "LLL"
+      - "LLL"
+      - "L L"
+    ingredient:
+      L: LEATHER
+    result:
+      type: SADDLE
+      amount: 1
